@@ -413,73 +413,12 @@
 
       
         
-          
-            <p>hexo是一款基于Node.js的静态博客框架，它的界面简洁，有多种好看的主题供我们选择，通过hexo我们可以轻松地使用Markdown编写文章，还可以使用Hexo提供的标签插件来快速插入特定形式的内容。下面就一步步介绍Hexo搭建个人博客的过程。</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>node.js的下载<a href="https://nodejs.org/en/" target="_blank" rel="external">网址</a></p>
-<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>git的安装和配置可以<a href="http://www.cnblogs.com/zhcncn/p/3787849.html" target="_blank" rel="external">参考</a></p>
-<h2 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>打开git Bash，执行如下命令：</p>
-<pre><code>npm install -g hexo
-</code></pre><h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p><strong>(1).Setup your blog</strong><br>Hexo安装完成后，在你喜爱的地方新建文件夹（如E：\Hexo）,在文件夹下面右键，选择Git Bash，执行如下命令，Hexo会自动在目标文件夹里建立网站所需要的所有文件。</p>
-<pre><code>hexo init
-</code></pre><p> <strong>(2).Start the server</strong><br>在（E:\Hexo下）运行下面的命令：<br>    $ hexo server<br>表明Hexo Server已经启动，在浏览器中打开http：//localhost:4000/,就可以在本地预览页面效果，按住Ctrl+C停止Server。</p>
-<p><strong>(3).Generate static files</strong></p>
-<p>执行下面的命令将Markdown文件生成静态网页。<br>    $ hexo generate</p>
-<p>该命令执行完成后，在 E:\Hexo\public\ 目录下生成一系列html，css等文件。</p>
-<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><h3 id="创建Resposity"><a href="#创建Resposity" class="headerlink" title="创建Resposity"></a>创建Resposity</h3><p>在github中新建仓库，仓库名必须为【github用户名.github.io】</p>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在E：\Hexo文件夹下找到_config.yml文件，然后编辑该文件，将</p>
-<pre><code>   #deploy:
-      type:
-repository:
-    branch:master
-</code></pre><p>修改成：</p>
-<pre><code>  #deploy:
-
-      type: git
-repository: https://github.com/dongchunxia/dongchunxia.github.io.git
-    branch:master
-</code></pre><p>其中resporsitory是你刚刚创建的仓库的HTTPS,clone后粘贴上就可以了。</p>
-<h3 id="生成SSH-Keys"><a href="#生成SSH-Keys" class="headerlink" title="生成SSH Keys"></a>生成SSH Keys</h3><p>我们如何让本地git项目与远程的github建立联系？这时候就要用到SSH Keys</p>
-<p><strong>（1）判断SSH keys是否存在</strong></p>
-<p>在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p>
-<pre><code>ls -al ~/.ssh
-</code></pre><p>如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件。</p>
-<p><strong>（2）生成SSH Keys</strong></p>
-<p>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：</p>
-<pre><code>ssh-keygen -t rsa -C &quot;2571451805@qq.com&quot;
-</code></pre><p>然后它会提示要你输入passphrase（如上图，我没有输入直接回车，如果你输入的话，要记得，到时候会用到）。</p>
-<p>然后键入以下指令：</p>
-<pre><code>ssh-agent -s
-</code></pre><p>输入之后，如果出现：</p>
-<pre><code>$ssh-add ~/.ssh/id_rsa
-Could not open a connection to your authentication agent.
-</code></pre><p>就输入下面的指令</p>
-<pre><code>eval `ssh-agent -s`
-ssh-add
-</code></pre><p>到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴）：</p>
-<pre><code>clip &lt; ~/.ssh/id_rsa.pub
-</code></pre><p>然后到Github里面，点击右上角的设置图标，在Settings sidebar那里，点击SSH keys，点击Add SSH key，输入Title，作为这个key的描述，然后这个Key就是刚刚拷贝的，你直接粘贴就好。点击Add Key，输入你的Github密码即可完成SSH Key的添加。<br>键入以下命令来测试一下：</p>
-<pre><code>ssh -T git@github.com
-</code></pre><p>你可能会看到有警告，没事，输入“yes”就好。</p>
-<p><strong>（3）完成部署</strong><br>键入如下指令来完成部署：</p>
-<pre><code>$ hexo clean 
-$ hexo generate
-$ hexo deploy
-</code></pre><p>当部署完成后，在浏览器中打开<a href="https://dongchunxia.github.io/，正常显示网页，表明部署成功。" target="_blank" rel="external">https://dongchunxia.github.io/，正常显示网页，表明部署成功。</a></p>
-<h2 id="常用命令总结"><a href="#常用命令总结" class="headerlink" title="常用命令总结"></a>常用命令总结</h2><pre><code>$ hexo new &quot;postName&quot; #新建文章
-$ hexo new page &quot;pageName&quot; #新建页面
-$ hexo clean #清除public下面的所有文件
-$ hexo generate #生成静态页面至public目录
-$ hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
-$ hexo deploy #将.deploy目录部署到GitHub
-$ hexo help  # 查看帮助
-$ hexo version  #查看Hexo的版本
-</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li><a href="http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html" target="_blank" rel="external">史上最详细“截图”搭建Hexo博客并部署到Github</a></li>
-<li><a href="http://www.jianshu.com/p/a2023a601ceb" target="_blank" rel="external">hexo–搭建</a></li>
-<li><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a></li>
-</ol>
-
-          
+          <p>hexo是一款基于Node.js的静态博客框架，它的界面简洁，有多种好看的主题供我们选择，通过hexo我们可以轻松地使用Markdown编写文章，还可以使用Hexo提供的标签插件来快速插入特定形式的内容。下面就一步步介绍Hexo搭建个人博客的过程。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/27/My-New-Post/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
