@@ -84,15 +84,15 @@
 
 
 
-<meta name="description">
+<meta name="description" content="晚上不吃饭？">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shirley's Bolg">
 <meta property="og:url" content="https://dongchunxia.github.io./index.html">
 <meta property="og:site_name" content="Shirley's Bolg">
-<meta property="og:description">
+<meta property="og:description" content="晚上不吃饭？">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shirley's Bolg">
-<meta name="twitter:description">
+<meta name="twitter:description" content="晚上不吃饭？">
 
 
 
@@ -105,7 +105,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Shriley'
+      author: '冰秋'
     }
   };
 </script>
@@ -352,7 +352,7 @@
               
                 
                 <a class="post-title-link" href="/2016/06/27/My-New-Post/" itemprop="url">
-                  My New Post
+                  Hexo+Github搭建个人博客
                 </a>
               
             
@@ -370,6 +370,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -395,7 +414,71 @@
       
         
           
-            
+            <p>hexo是一款基于Node.js的静态博客框架，它的界面简洁，有多种好看的主题供我们选择，通过hexo我们可以轻松地使用Markdown编写文章，还可以使用Hexo提供的标签插件来快速插入特定形式的内容。下面就一步步介绍Hexo搭建个人博客的过程。</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>node.js的下载<a href="https://nodejs.org/en/" target="_blank" rel="external">网址</a></p>
+<h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>git的安装和配置可以<a href="http://www.cnblogs.com/zhcncn/p/3787849.html" target="_blank" rel="external">参考</a></p>
+<h2 id="hexo安装"><a href="#hexo安装" class="headerlink" title="hexo安装"></a>hexo安装</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>打开git Bash，执行如下命令：</p>
+<pre><code>npm install -g hexo
+</code></pre><h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p><strong>(1).Setup your blog</strong><br>Hexo安装完成后，在你喜爱的地方新建文件夹（如E：\Hexo）,在文件夹下面右键，选择Git Bash，执行如下命令，Hexo会自动在目标文件夹里建立网站所需要的所有文件。</p>
+<pre><code>hexo init
+</code></pre><p> <strong>(2).Start the server</strong><br>在（E:\Hexo下）运行下面的命令：<br>    $ hexo server<br>表明Hexo Server已经启动，在浏览器中打开http：//localhost:4000/,就可以在本地预览页面效果，按住Ctrl+C停止Server。</p>
+<p><strong>(3).Generate static files</strong></p>
+<p>执行下面的命令将Markdown文件生成静态网页。<br>    $ hexo generate</p>
+<p>该命令执行完成后，在 E:\Hexo\public\ 目录下生成一系列html，css等文件。</p>
+<h2 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h2><h3 id="创建Resposity"><a href="#创建Resposity" class="headerlink" title="创建Resposity"></a>创建Resposity</h3><p>在github中新建仓库，仓库名必须为【github用户名.github.io】</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在E：\Hexo文件夹下找到_config.yml文件，然后编辑该文件，将</p>
+<pre><code>   #deploy:
+      type:
+repository:
+    branch:master
+</code></pre><p>修改成：</p>
+<pre><code>  #deploy:
+
+      type: git
+repository: https://github.com/dongchunxia/dongchunxia.github.io.git
+    branch:master
+</code></pre><p>其中resporsitory是你刚刚创建的仓库的HTTPS,clone后粘贴上就可以了。</p>
+<h3 id="生成SSH-Keys"><a href="#生成SSH-Keys" class="headerlink" title="生成SSH Keys"></a>生成SSH Keys</h3><p>我们如何让本地git项目与远程的github建立联系？这时候就要用到SSH Keys</p>
+<p><strong>（1）判断SSH keys是否存在</strong></p>
+<p>在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p>
+<pre><code>ls -al ~/.ssh
+</code></pre><p>如果不存在就没有关系，如果存在的话，直接删除.ssh文件夹里面所有文件。</p>
+<p><strong>（2）生成SSH Keys</strong></p>
+<p>输入以下指令（邮箱就是你注册Github时候的邮箱）后，回车：</p>
+<pre><code>ssh-keygen -t rsa -C &quot;2571451805@qq.com&quot;
+</code></pre><p>然后它会提示要你输入passphrase（如上图，我没有输入直接回车，如果你输入的话，要记得，到时候会用到）。</p>
+<p>然后键入以下指令：</p>
+<pre><code>ssh-agent -s
+</code></pre><p>输入之后，如果出现：</p>
+<pre><code>$ssh-add ~/.ssh/id_rsa
+Could not open a connection to your authentication agent.
+</code></pre><p>就输入下面的指令</p>
+<pre><code>eval `ssh-agent -s`
+ssh-add
+</code></pre><p>到了这一步，就可以添加SSH key到你的Github账户了。键入以下指令，拷贝Key（先拷贝了，等一下可以直接粘贴）：</p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre><p>然后到Github里面，点击右上角的设置图标，在Settings sidebar那里，点击SSH keys，点击Add SSH key，输入Title，作为这个key的描述，然后这个Key就是刚刚拷贝的，你直接粘贴就好。点击Add Key，输入你的Github密码即可完成SSH Key的添加。<br>键入以下命令来测试一下：</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>你可能会看到有警告，没事，输入“yes”就好。</p>
+<p><strong>（3）完成部署</strong><br>键入如下指令来完成部署：</p>
+<pre><code>$ hexo clean 
+$ hexo generate
+$ hexo deploy
+</code></pre><p>当部署完成后，在浏览器中打开<a href="https://dongchunxia.github.io/，正常显示网页，表明部署成功。" target="_blank" rel="external">https://dongchunxia.github.io/，正常显示网页，表明部署成功。</a></p>
+<h2 id="常用命令总结"><a href="#常用命令总结" class="headerlink" title="常用命令总结"></a>常用命令总结</h2><pre><code>$ hexo new &quot;postName&quot; #新建文章
+$ hexo new page &quot;pageName&quot; #新建页面
+$ hexo clean #清除public下面的所有文件
+$ hexo generate #生成静态页面至public目录
+$ hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）
+$ hexo deploy #将.deploy目录部署到GitHub
+$ hexo help  # 查看帮助
+$ hexo version  #查看Hexo的版本
+</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html" target="_blank" rel="external">史上最详细“截图”搭建Hexo博客并部署到Github</a></li>
+<li><a href="http://www.jianshu.com/p/a2023a601ceb" target="_blank" rel="external">hexo–搭建</a></li>
+<li><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a></li>
+</ol>
+
           
         
       
@@ -445,7 +528,7 @@
               
                 
                 <a class="post-title-link" href="/2016/06/27/hello-world/" itemprop="url">
-                  Hello World
+                  冰秋的小天地
                 </a>
               
             
@@ -463,6 +546,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -488,15 +590,8 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>Hi! 大家好，我是chou pang 的小猪，冰秋是我的笔名，是不是很文艺，我还有一个很装逼的英文名“Shirley”，嘻嘻……貌似这么文艺和装逼的的名字不适合我，以后敝人还是自称小猪吧。</p>
+<p>搭了两天的个人博客终于新鲜出炉的（原谅我的愚笨，搭了两天才搭好），好开森，以后就在这里跟大家一起分享交流了。</p>
 
           
         
@@ -559,9 +654,9 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
-               alt="Shirley" />
-          <p class="site-author-name" itemprop="name">Shirley</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+               alt="冰秋" />
+          <p class="site-author-name" itemprop="name">冰秋</p>
+          <p class="site-description motion-element" itemprop="description">晚上不吃饭？</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -572,7 +667,21 @@
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -592,7 +701,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weib.com/shriley123" target="_blank" title="Weibo">
+                <a href="http://weibo.com/shriley123" target="_blank" title="Weibo">
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
@@ -630,7 +739,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Shirley</span>
+  <span class="author" itemprop="copyrightHolder">冰秋</span>
 </div>
 
 <div class="powered-by">
