@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="晚上不吃饭？">
+<meta name="description" content="前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。hexo主题汇总。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="this is a text">
+<meta property="og:title" content="基于hexo-theme-next的主题修改">
 <meta property="og:url" content="https://dongchunxia.github.io./2016/06/28/this-is-a-text/index.html">
 <meta property="og:site_name" content="Shirley's Bolg">
-<meta property="og:description" content="晚上不吃饭？">
-<meta property="og:updated_time" content="2016-06-28T12:16:09.588Z">
+<meta property="og:description" content="前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。hexo主题汇总。">
+<meta property="og:updated_time" content="2016-06-29T14:28:14.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="this is a text">
-<meta name="twitter:description" content="晚上不吃饭？">
+<meta name="twitter:title" content="基于hexo-theme-next的主题修改">
+<meta name="twitter:description" content="前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。hexo主题汇总。">
 
 
 
@@ -116,7 +116,7 @@
 
   <link rel="canonical" href="https://dongchunxia.github.io./2016/06/28/this-is-a-text/"/>
 
-  <title> this is a text | Shirley's Bolg </title>
+  <title> 基于hexo-theme-next的主题修改 | Shirley's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +256,7 @@
             
             
               
-                this is a text
+                基于hexo-theme-next的主题修改
               
             
           </h1>
@@ -296,7 +296,20 @@
       
 
       
-        
+        <p>前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。<br><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo主题汇总</a>。<br><a id="more"></a></p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>将Git Bash切换到E:\hexo下，执行下面的命令将next主题下载到themes/hexo-theme-next下。</p>
+<pre><code>$ git clone https://github.com/iissnan/hexo-theme-next
+</code></pre><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改你的博客根目录E/Hexo下的_config.yml配置文件中的theme属性，将其设置为hexo-theme-next。</p>
+<p>next主题的设置与优化可以参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next的官方文档</a></p>
+<h2 id="更新hexo-theme-next主题"><a href="#更新hexo-theme-next主题" class="headerlink" title="更新hexo-theme-next主题"></a>更新hexo-theme-next主题</h2><p>执行如下命令将主题进行更新</p>
+<pre><code>$ cd themes/hexo-theme-next
+$ git pull
+</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://www.jianshu.com/p/70343b7c2fd3" target="_blank" rel="external">Hexo 主题Light修改教程</a></li>
+<li><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next官网</a></li>
+</ol>
+
       
     </div>
 
@@ -314,6 +327,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag">#git</a>
+          
+        </div>
       
 
       
@@ -411,7 +430,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -460,7 +479,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装主题"><span class="nav-number">1.</span> <span class="nav-text">安装主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新hexo-theme-next主题"><span class="nav-number">3.</span> <span class="nav-text">更新hexo-theme-next主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
           </div>
         </section>
