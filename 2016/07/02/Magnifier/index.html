@@ -92,7 +92,8 @@
 <meta property="og:description" content="在网购时，在商品的主页上，当我们把鼠标放在图片上时，图片的右边会出现局部放大的图片，鼠标移开，放大的图片消失，这就是图片放大特效。今天在慕课网上看完姜维老师的“用JS实现放大镜特效”课程，现总结如下。">
 <meta property="og:image" content="https://dongchunxia.github.io./img/position.png">
 <meta property="og:image" content="https://dongchunxia.github.io./img/yuanli.png">
-<meta property="og:updated_time" content="2016-07-04T12:42:31.797Z">
+<meta property="og:image" content="https://dongchunxia.github.io./img/tupianfangda_code.png">
+<meta property="og:updated_time" content="2016-07-04T12:47:38.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片放大镜特效（一）">
 <meta name="twitter:description" content="在网购时，在商品的主页上，当我们把鼠标放在图片上时，图片的右边会出现局部放大的图片，鼠标移开，放大的图片消失，这就是图片放大特效。今天在慕课网上看完姜维老师的“用JS实现放大镜特效”课程，现总结如下。">
@@ -312,38 +313,8 @@
 <ol>
 <li>style.left返回的是字符串，如30px，offsetLeft返回的是数值30；</li>
 <li>style.left是可读写的，offsetLeft是只读的，所以要改变div的位置，只能修改style.left;</li>
-<li><p>style.left的值需要事先定义，否则取到的值为空。</p>
-<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2.原理"></a>2.原理</h2><p>放大镜的offsetLeft/(小图片的宽度-放大镜的宽度)=大图片移动的距离/(大图片的宽度-显示区域的宽度)<br><img src="/img/yuanli.png" alt="原理图"></p>
-<h2 id="3-JavaScript实现"><a href="#3-JavaScript实现" class="headerlink" title="3.JavaScript实现"></a>3.JavaScript实现</h2><p>JavaScript核心代码：</p>
-<pre><code>markBox.onmousemove=function(ev){
-
-      var event= ev ||window.event;
-
-      var left=event.clientX-demo.offsetLeft-smallBox.offsetLeft-float.offsetWidth/2;
-      var top=event.clientY-demo.offsetTop-smallBox.offsetTop-float.offsetHeight/2;
-
-      if (left&lt;0) {
-          left=0
-      }else if (left&gt;smallBox.offsetWidth-float.offsetWidth) {
-          left=smallBox.offsetWidth-float.offsetWidth
-      }
-      if (top&lt;0) {
-          top=0;
-      }else if (top&gt;smallBox.offsetHeight-float.offsetHeight) {
-          top=smallBox.offsetHeight-float.offsetHeight
-      }
-
-      float.style.left = left + &quot;px&quot;;
-      float.style.top= top + &quot;px&quot;;
-
-      var percentX=left/(smallBox.offsetWidth-float.offsetWidth);
-      var percentY=top/(smallBox.offsetHeight-float.offsetHeight);
-
-      bigImg.style.left= -percentX * (bigImg.offsetWidth-bigBox.offsetWidth)+&quot;px&quot;;
-      bigImg.style.top= -percentY*(bigImg.offsetHeight-bigBox.offsetHeight)+&quot;px&quot;;
-</code></pre></li>
+<li>style.left的值需要事先定义，否则取到的值为空。<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2.原理"></a>2.原理</h2>放大镜的offsetLeft/(小图片的宽度-放大镜的宽度)=大图片移动的距离/(大图片的宽度-显示区域的宽度)<br><img src="/img/yuanli.png" alt="原理图"><h2 id="3-JavaScript实现"><a href="#3-JavaScript实现" class="headerlink" title="3.JavaScript实现"></a>3.JavaScript实现</h2>JavaScript核心代码：<br><img src="/img/tupianfangda_code.png" alt="图片放大特效代码"><h2 id="4-浏览器兼容"><a href="#4-浏览器兼容" class="headerlink" title="4.浏览器兼容"></a>4.浏览器兼容</h2>ie中设置对象的透明度：</li>
 </ol>
-<h2 id="4-浏览器兼容"><a href="#4-浏览器兼容" class="headerlink" title="4.浏览器兼容"></a>4.浏览器兼容</h2><p>ie中设置对象的透明度：</p>
 <p>filter：alpha（opacity=number），number的取值范围是0-100，0代表完全透明；</p>
 <p>ie中闪烁情况的解决：<br>ie中的事件捕获中，当鼠标悬在小图片上时，触发onmouseover事件，鼠标最直接接触的是float，因此紧接着会触发小图片的onmouseout事件，出现闪烁情况。而在谷歌等其他浏览器中不会出现这种情况，解决方法是在小图片上覆盖一层div（id=mark）。</p>
 <h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h2><p>该方法的课扩展性比较差，看过大牛用jQuery+Jason写的demo，当图片增多时，只需要给图片加一个属性即可，不需要再单独写代码来获取图片的相关信息。但由于本人能力有限目前还不能礼物其精髓，待技术变强会后续更新。</p>
