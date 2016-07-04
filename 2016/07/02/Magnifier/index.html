@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。hexo主题汇总。">
+<meta name="description" content="在网购时，在商品的主页上，当我们把鼠标放在图片上时，图片的右边会出现局部放大的图片，鼠标移开，放大的图片消失，这就是图片放大特效。今天在慕课网上看完姜维老师的“用JS实现放大镜特效”课程，现总结如下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于hexo-theme-next的主题修改">
-<meta property="og:url" content="https://dongchunxia.github.io./2016/06/28/this-is-a-text/index.html">
+<meta property="og:title" content="图片放大镜特效（一）">
+<meta property="og:url" content="https://dongchunxia.github.io./2016/07/02/Magnifier/index.html">
 <meta property="og:site_name" content="Shirley's Bolg">
-<meta property="og:description" content="前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。hexo主题汇总。">
-<meta property="og:updated_time" content="2016-06-29T14:28:14.542Z">
+<meta property="og:description" content="在网购时，在商品的主页上，当我们把鼠标放在图片上时，图片的右边会出现局部放大的图片，鼠标移开，放大的图片消失，这就是图片放大特效。今天在慕课网上看完姜维老师的“用JS实现放大镜特效”课程，现总结如下。">
+<meta property="og:image" content="https://dongchunxia.github.io./img/position.png">
+<meta property="og:image" content="https://dongchunxia.github.io./img/yuanli.png">
+<meta property="og:updated_time" content="2016-07-04T12:42:31.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于hexo-theme-next的主题修改">
-<meta name="twitter:description" content="前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。hexo主题汇总。">
+<meta name="twitter:title" content="图片放大镜特效（一）">
+<meta name="twitter:description" content="在网购时，在商品的主页上，当我们把鼠标放在图片上时，图片的右边会出现局部放大的图片，鼠标移开，放大的图片消失，这就是图片放大特效。今天在慕课网上看完姜维老师的“用JS实现放大镜特效”课程，现总结如下。">
+<meta name="twitter:image" content="https://dongchunxia.github.io./img/position.png">
 
 
 
@@ -114,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="https://dongchunxia.github.io./2016/06/28/this-is-a-text/"/>
+  <link rel="canonical" href="https://dongchunxia.github.io./2016/07/02/Magnifier/"/>
 
-  <title> 基于hexo-theme-next的主题修改 | Shirley's Bolg </title>
+  <title> 图片放大镜特效（一） | Shirley's Bolg </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +259,7 @@
             
             
               
-                基于hexo-theme-next的主题修改
+                图片放大镜特效（一）
               
             
           </h1>
@@ -268,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-28T20:16:09+08:00" content="2016-06-28">
-              2016-06-28
+            <time itemprop="dateCreated" datetime="2016-07-02T22:01:03+08:00" content="2016-07-02">
+              2016-07-02
             </time>
           </span>
 
@@ -296,19 +299,54 @@
       
 
       
-        <p>前面已经介绍了基于Hexo+Github搭建的个人博客，但是hexo自带的主题不是很喜欢，于是又开始了我的折腾之路。经过查看众多hexo主题Demo，最终还是比较喜欢next和yilia两款主题，下面就以hexo-theme-next主题为例介绍其更改过程。<br><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo主题汇总</a>。<br><a id="more"></a></p>
-<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>将Git Bash切换到E:\hexo下，执行下面的命令将next主题下载到themes/hexo-theme-next下。</p>
-<pre><code>$ git clone https://github.com/iissnan/hexo-theme-next
-</code></pre><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改你的博客根目录E/Hexo下的_config.yml配置文件中的theme属性，将其设置为hexo-theme-next。</p>
-<p>next主题的设置与优化可以参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next的官方文档</a></p>
-<h2 id="更新hexo-theme-next主题"><a href="#更新hexo-theme-next主题" class="headerlink" title="更新hexo-theme-next主题"></a>更新hexo-theme-next主题</h2><p>执行如下命令将主题进行更新</p>
-<pre><code>$ cd themes/hexo-theme-next
-$ git pull
-</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li><a href="http://www.jianshu.com/p/70343b7c2fd3" target="_blank" rel="external">Hexo 主题Light修改教程</a></li>
-<li><a href="http://www.cnblogs.com/zhcncn/p/4097881.html" target="_blank" rel="external">Hexo搭建Github静态博客</a></li>
-<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next官网</a></li>
+        <p>在网购时，在商品的主页上，当我们把鼠标放在图片上时，图片的右边会出现局部放大的图片，鼠标移开，放大的图片消失，这就是图片放大特效。今天在慕课网上看完姜维老师的“用JS实现放大镜特效”课程，现总结如下。<br><a id="more"></a></p>
+<h2 id="1-技术点"><a href="#1-技术点" class="headerlink" title="1.技术点"></a>1.技术点</h2><p><strong>三个鼠标事件：</strong></p>
+<ol>
+<li>onmouseover：鼠标移到指定对象上时触发；</li>
+<li>onmouseout：鼠标移出指定对象上时触发；</li>
+<li>onmousemove：鼠标在指定对象上移动时触发；</li>
 </ol>
+<p><strong>六个定位属性：</strong></p>
+<p><img src="/img/position.png" alt="盒子的定位属性"></p>
+<p><strong>style.left与offsetLeft的区别</strong></p>
+<ol>
+<li>style.left返回的是字符串，如30px，offsetLeft返回的是数值30；</li>
+<li>style.left是可读写的，offsetLeft是只读的，所以要改变div的位置，只能修改style.left;</li>
+<li><p>style.left的值需要事先定义，否则取到的值为空。</p>
+<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2.原理"></a>2.原理</h2><p>放大镜的offsetLeft/(小图片的宽度-放大镜的宽度)=大图片移动的距离/(大图片的宽度-显示区域的宽度)<br><img src="/img/yuanli.png" alt="原理图"></p>
+<h2 id="3-JavaScript实现"><a href="#3-JavaScript实现" class="headerlink" title="3.JavaScript实现"></a>3.JavaScript实现</h2><p>JavaScript核心代码：</p>
+<pre><code>markBox.onmousemove=function(ev){
+
+      var event= ev ||window.event;
+
+      var left=event.clientX-demo.offsetLeft-smallBox.offsetLeft-float.offsetWidth/2;
+      var top=event.clientY-demo.offsetTop-smallBox.offsetTop-float.offsetHeight/2;
+
+      if (left&lt;0) {
+          left=0
+      }else if (left&gt;smallBox.offsetWidth-float.offsetWidth) {
+          left=smallBox.offsetWidth-float.offsetWidth
+      }
+      if (top&lt;0) {
+          top=0;
+      }else if (top&gt;smallBox.offsetHeight-float.offsetHeight) {
+          top=smallBox.offsetHeight-float.offsetHeight
+      }
+
+      float.style.left = left + &quot;px&quot;;
+      float.style.top= top + &quot;px&quot;;
+
+      var percentX=left/(smallBox.offsetWidth-float.offsetWidth);
+      var percentY=top/(smallBox.offsetHeight-float.offsetHeight);
+
+      bigImg.style.left= -percentX * (bigImg.offsetWidth-bigBox.offsetWidth)+&quot;px&quot;;
+      bigImg.style.top= -percentY*(bigImg.offsetHeight-bigBox.offsetHeight)+&quot;px&quot;;
+</code></pre></li>
+</ol>
+<h2 id="4-浏览器兼容"><a href="#4-浏览器兼容" class="headerlink" title="4.浏览器兼容"></a>4.浏览器兼容</h2><p>ie中设置对象的透明度：</p>
+<p>filter：alpha（opacity=number），number的取值范围是0-100，0代表完全透明；</p>
+<p>ie中闪烁情况的解决：<br>ie中的事件捕获中，当鼠标悬在小图片上时，触发onmouseover事件，鼠标最直接接触的是float，因此紧接着会触发小图片的onmouseout事件，出现闪烁情况。而在谷歌等其他浏览器中不会出现这种情况，解决方法是在小图片上覆盖一层div（id=mark）。</p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h2><p>该方法的课扩展性比较差，看过大牛用jQuery+Jason写的demo，当图片增多时，只需要给图片加一个属性即可，不需要再单独写代码来获取图片的相关信息。但由于本人能力有限目前还不能礼物其精髓，待技术变强会后续更新。</p>
 
       
     </div>
@@ -330,7 +368,7 @@ $ git pull
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag">#git</a>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
         </div>
       
@@ -339,17 +377,13 @@ $ git pull
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/27/My-New-Post/" rel="next" title="Hexo+Github搭建个人博客">
-                <i class="fa fa-chevron-left"></i> Hexo+Github搭建个人博客
+              <a href="/2016/07/01/Cut-Pictures/" rel="next" title="多种切图方法">
+                <i class="fa fa-chevron-left"></i> 多种切图方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/30/drop-down-menu/" rel="prev" title="下拉菜单的制作">
-                下拉菜单的制作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -483,7 +517,7 @@ $ git pull
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装主题"><span class="nav-number">1.</span> <span class="nav-text">安装主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新hexo-theme-next主题"><span class="nav-number">3.</span> <span class="nav-text">更新hexo-theme-next主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-技术点"><span class="nav-number">1.</span> <span class="nav-text">1.技术点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-原理"><span class="nav-number">2.</span> <span class="nav-text">2.原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-JavaScript实现"><span class="nav-number">3.</span> <span class="nav-text">3.JavaScript实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-浏览器兼容"><span class="nav-number">4.</span> <span class="nav-text">4.浏览器兼容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-总结"><span class="nav-number">5.</span> <span class="nav-text">5.总结</span></a></li></ol></div>
             
           </div>
         </section>
